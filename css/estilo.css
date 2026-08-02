@@ -1,0 +1,449 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#2d1b12;
+}
+
+
+header{
+    background:#000000;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    box-shadow: 0px 4px 6px #000000;
+    position: relative;
+}
+
+header h2{
+    color:#d4a762;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+nav a:hover {
+    color: #d4a762;
+    transition: 0.5s;
+}
+
+.hero{
+    height:90vh;
+    background:url("../imgs/cafes.jpeg") center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero div{
+    background:rgba(0,0,0,.5);
+    padding:40px;
+    border-radius:10px;
+}
+
+.hero h1{
+    font-size:60px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.hero p{
+    margin:20px 0;
+}
+
+.hero button{
+    background:#b88646;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+.hero button:hover{
+    background-color: white;
+    color: #000000;
+    transition: 1s;
+}
+
+
+/* ===================== SEPARADOR ENTRE SECCIONES ===================== */
+.separador{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px 0;
+    position:relative;
+}
+
+.separador::before,
+.separador::after{
+    content:"";
+    height:1px;
+    width:35%;
+    background:#5a4535;
+}
+
+.separador-icono{
+    width:34px;
+    height:34px;
+    margin:0 20px;
+    color:#d4a762;
+    flex-shrink:0;
+}
+
+.separador-icono svg{
+    width:100%;
+    height:100%;
+}
+
+
+/* ===================== SOBRE NOSOTROS ===================== */
+.sobre-nosotros{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    padding:80px 60px;
+    background:#3a2318;
+    color:#f1e9df;
+}
+
+.sobre-imagen{
+    flex:1;
+    min-width:280px;
+}
+
+.sobre-imagen img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    border-radius:8px;
+    border:1px solid #d4a762;
+}
+
+.sobre-texto{
+    flex:1;
+    min-width:280px;
+}
+
+.sobre-texto h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#d4a762;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.sobre-texto p{
+    line-height:1.8;
+    margin-bottom:16px;
+    color:#e8ddd0;
+}
+
+.sobre-texto .cita{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style:italic;
+    color:#d4a762;
+    border-left:2px solid #d4a762;
+    padding-left:16px;
+    margin-top:24px;
+}
+
+
+/* ===================== NUESTRO OBJETIVO ===================== */
+.objetivo{
+    padding:80px 60px;
+    text-align:center;
+    color:#f1e9df;
+}
+
+.objetivo h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#d4a762;
+    font-size:34px;
+}
+
+.objetivo-intro{
+    color:#c9b8a8;
+    margin:12px 0 50px;
+}
+
+.objetivo-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:30px;
+    max-width:1000px;
+    margin:0 auto;
+}
+
+.objetivo-card{
+    background:rgba(0,0,0,.35);
+    border:1px solid transparent;
+    border-radius:10px;
+    padding:40px 25px;
+    transition: 0.5s;
+}
+
+.objetivo-card:hover{
+    border-color:#d4a762;
+    transform:translateY(-6px);
+}
+
+.objetivo-icono{
+    display:inline-flex;
+    width:44px;
+    height:44px;
+    color:#d4a762;
+    margin-bottom:18px;
+    transition: 0.5s;
+}
+
+.objetivo-icono svg{
+    width:100%;
+    height:100%;
+}
+
+.objetivo-card:hover .objetivo-icono{
+    color:#ffffff;
+}
+
+.objetivo-card h3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#ffffff;
+    margin-bottom:12px;
+    font-size:20px;
+}
+
+.objetivo-card p{
+    color:#d8cabb;
+    line-height:1.6;
+    font-size:15px;
+}
+
+hr{
+    border: none;
+    height: 2px;
+    background-color: #d4a762;
+}
+/* ===================== POR QUÉ ELEGIMOS UNA CAFETERÍA ===================== */
+.porque{
+    height:70vh;
+    display:flex;
+    background:url(imgs/coffe.jpg) center/cover fixed;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 20px;
+
+}
+
+.porque-card{
+    background:rgba(0,0,0,.9);
+    border-radius:10px;
+    padding:50px 40px;
+    max-width:640px;
+    box-shadow: 0px 4px 10px #d4a762;
+}
+
+.porque-card h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#d4a762;
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.porque-card p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style:italic;
+    color:#f1e9df;
+    line-height:1.9;
+    font-size:18px;
+}
+
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px){
+    .sobre-nosotros{
+        flex-direction:column;
+        padding:60px 30px;
+    }
+
+    .objetivo, .sobre-nosotros{
+        padding-left:30px;
+        padding-right:30px;
+    }
+
+    .porque{
+        background-attachment:scroll;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .footer-redes{
+        justify-content:center;
+    }
+}
+
+
+/* ===================== FOOTER ===================== */
+footer{
+    background:#1a0f0a;
+    color:#d8cabb;
+    padding:60px 60px 30px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr 1fr;
+    gap:40px;
+    max-width:1100px;
+    margin:0 auto;
+    padding-bottom:40px;
+}
+
+.footer-marca h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#d4a762;
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.footer-marca p{
+    color:#a89583;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.footer-col h3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#d4a762;
+    font-size:16px;
+    margin-bottom:16px;
+}
+
+.footer-col a{
+    display:block;
+    color:#d8cabb;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:10px;
+    transition: 0.5s;
+}
+
+.footer-col a:hover{
+    color:#d4a762;
+}
+
+.footer-col p{
+    font-size:14px;
+    line-height:1.8;
+    color:#a89583;
+}
+
+.footer-redes{
+    display:flex;
+    gap:16px;
+}
+
+.footer-redes a{
+    width:22px;
+    height:22px;
+    color:#d4a762;
+    transition: 0.5s;
+}
+
+.footer-redes a:hover{
+    color:#ffffff;
+}
+
+.footer-redes svg{
+    width:100%;
+    height:100%;
+}
+
+.footer-linea{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 0 20px;
+}
+
+.footer-linea svg{
+    width:100%;
+    height:12px;
+}
+
+.footer-copy{
+    text-align:center;
+    font-size:13px;
+    color:#7a6a5a;
+    max-width:1100px;
+    margin:0 auto;
+}
+
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .sobre-nosotros {
+        flex-direction: column;
+        padding: 60px 30px;
+        gap: 30px;
+    }
+
+    .objetivo {
+        padding: 60px 30px;
+    }
+
+    .porque {
+        background-attachment: scroll;
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-redes {
+        justify-content: center;
+    }
+
+    footer {
+        padding: 40px 20px 20px;
+    }
+}
