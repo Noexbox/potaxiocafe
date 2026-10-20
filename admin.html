@@ -11,9 +11,7 @@
 <body>
 
     <header class="con-menu">
-        <!-- ===== MARCA: LOGO + NOMBRE =====
-             Para poner tu logo, guarda la imagen como imgs/logo.png
-             (o cambia el src de abajo). Mientras no exista, se muestra un recuadro de reserva. -->
+        <!-- Logo: guarda tu imagen como imgs/logo.png (mismo logo en todas las páginas) -->
         <a class="marca" href="index.html">
             <span class="logo-slot">
                 <img class="logo" src="imgs/logo.png" alt="Logo de Potaxio Café"
@@ -33,7 +31,7 @@
 
         <nav id="menu-principal">
             <a href="index.html">Inicio</a>
-            <a href="pedidos.html">Pedir</a>
+            <a href="pedidos.html">Pedidos</a>
             <a href="admin.html">Admin</a>
         </nav>
     </header>
@@ -274,9 +272,9 @@
                 const { productos } = await api('/api/admin/productos');
                 $('#tabla-productos').innerHTML = productos.map(p => `
                     <tr>
-                        <td>${esc(p.nombre)}</td>
-                        <td><input type="number" step="0.01" min="0" value="${Number(p.precio).toFixed(2)}" id="precio-${p.id_producto}"></td>
-                        <td><input type="checkbox" id="disp-${p.id_producto}" ${p.disponible ? 'checked' : ''}></td>
+                        <td data-label="Producto">${esc(p.nombre)}</td>
+                        <td data-label="Precio ($)"><input type="number" step="0.01" min="0" value="${Number(p.precio).toFixed(2)}" id="precio-${p.id_producto}"></td>
+                        <td data-label="Disponible"><input type="checkbox" id="disp-${p.id_producto}" ${p.disponible ? 'checked' : ''}></td>
                         <td><button class="btn btn-outline" data-id="${p.id_producto}">Guardar</button></td>
                     </tr>
                 `).join('');
@@ -322,9 +320,9 @@
 
                 $('#cuerpo-roles').innerHTML = datos.cliente.resultados.map((r, i) => `
                     <tr>
-                        <td>${esc(r.prueba)}</td>
-                        <td>${celda(r)}</td>
-                        <td>${celda(datos.administrador.resultados[i])}</td>
+                        <td data-label="Operación">${esc(r.prueba)}</td>
+                        <td data-label="Cliente">${celda(r)}</td>
+                        <td data-label="Administrador">${celda(datos.administrador.resultados[i])}</td>
                     </tr>
                 `).join('');
 
@@ -351,6 +349,6 @@
             });
         })();
     </script>
-
+    
 </body>
 </html>

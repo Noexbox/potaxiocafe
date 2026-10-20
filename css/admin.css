@@ -299,134 +299,81 @@
         text-align:left;
     }
 }
-img{ max-width:100%; }
-body{ overflow-x:hidden; }
 
-/* ---------- Pantallas medianas / laptop pequeña ---------- */
-@media (max-width: 1100px){
-    header{ padding:18px 30px; }
-    .sobre-nosotros{ gap:40px; padding:70px 40px; }
-    .objetivo{ padding:70px 40px; }
-    footer{ padding:50px 40px 26px; }
-}
 
-/* ---------- Tablet ---------- */
+/* ===================== RESPONSIVE ===================== */
+/* Va al final del archivo a propósito, para que no lo pisen las reglas de arriba */
+
+/* Tablet */
 @media (max-width: 900px){
-    .hero{ min-height:80vh; height:auto; padding:60px 20px; }
-    .hero h1{ font-size:clamp(34px, 8vw, 52px); }
-
-    .sobre-nosotros{
-        flex-direction:column;
-        gap:32px;
-        padding:60px 30px;
-    }
-    .sobre-imagen,
-    .sobre-texto{ flex:none; width:100%; min-width:0; }
-    .sobre-imagen img{ height:300px; }
-
-    .objetivo{ padding:60px 30px; }
-
-    .porque{
-        height:auto;
-        min-height:60vh;
-        padding:60px 20px;
-        background-attachment:scroll; /* 'fixed' falla en móviles */
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-        gap:32px;
-    }
+    .admin{ padding:40px 24px 70px; }
 }
 
-/* ---------- Celular: navbar con hamburguesa ---------- */
-@media (max-width: 768px){
-    header{
-        flex-wrap:wrap;
-        padding:12px 20px;
+/* Celular */
+@media (max-width: 700px){
+    .admin{ padding:28px 16px 60px; }
+    .admin h1{ font-size:26px; }
+
+    .admin-top{ align-items:flex-start; }
+    .admin-top .btn{ width:100%; }
+
+    .admin-login{ margin:30px auto; padding:26px 20px; }
+
+    /* Pestañas repartidas en todo el ancho */
+    .admin-tabs{ gap:0; }
+    .admin-tab{ flex:1; padding:12px 8px; font-size:15px; }
+
+    .pedido-card{ padding:16px; }
+    .pedido-cabecera > div:last-child{ width:100%; }
+    .pedido-total{ text-align:left; }
+    .admin select{ width:100%; }
+    .rol-explica{ font-size:13px; }
+    #btn-roles{ width:100%; }
+}
+
+/* Celular: las tablas se convierten en tarjetas (cada fila apilada, con su etiqueta) */
+@media (max-width: 600px){
+    .tabla,
+    .tabla tbody,
+    .tabla tr,
+    .tabla td{ display:block; width:100%; }
+
+    .tabla{ background:none; border:none; }
+    .tabla thead{ display:none; }
+
+    .tabla tr{
+        background:rgba(0,0,0,.3);
+        border:1px solid #4a3626;
+        border-radius:10px;
+        padding:8px 14px;
+        margin-bottom:14px;
     }
 
-    .menu-toggle{ display:flex; }
-
-    header.con-menu nav{
-        display:none;
-        width:100%;
-        flex-direction:column;
-        padding-top:10px;
-        margin-top:10px;
-        border-top:1px solid #3a2a20;
-    }
-
-    header.con-menu.menu-abierto nav{ display:flex; }
-
-    header.con-menu nav a{
-        margin:0;
-        padding:12px 4px;
-        border-bottom:1px solid #1f1510;
-    }
-
-    /* Páginas sin hamburguesa (pedidos y admin): navbar centrada en columna */
-    header:not(.con-menu){
-        flex-direction:column;
-        gap:12px;
-    }
-
-    header:not(.con-menu) nav{
+    .tabla td{
+        border-bottom:1px solid #3a2a1e;
+        padding:10px 0;
         display:flex;
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:6px 0;
+        justify-content:space-between;
+        align-items:center;
+        gap:14px;
+        text-align:right;
     }
 
-    header:not(.con-menu) nav a{
-        margin:0 10px;
+    .tabla tr td:last-child{ border-bottom:none; }
+
+    .tabla td::before{
+        content:attr(data-label);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color:#d4a762;
+        text-align:left;
+        flex-shrink:0;
     }
 
-    /* La hamburguesa se convierte en una X al abrirse */
-    header.menu-abierto .menu-toggle span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-    header.menu-abierto .menu-toggle span:nth-child(2){ opacity:0; }
-    header.menu-abierto .menu-toggle span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+    /* Celdas sin etiqueta (botón Guardar) ocupan todo el ancho */
+    .tabla td:not([data-label])::before{ content:none; }
+    .tabla td .btn{ width:100%; }
 
-    .separador::before,
-    .separador::after{ width:25%; }
-
-    footer{ padding:44px 24px 24px; }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-        text-align:center;
-        gap:28px;
-    }
-
-    .footer-redes{ justify-content:center; }
-}
-
-/* ---------- Celular pequeño ---------- */
-@media (max-width: 480px){
-    .logo-slot{ width:40px; height:40px; }
-    header h2{ font-size:18px; }
-
-    .hero{ min-height:70vh; padding:40px 16px; }
-    .hero div{ padding:28px 20px; width:100%; }
-    .hero p{ font-size:15px; }
-    .hero button{ padding:13px 26px; }
-
-    .sobre-nosotros{ padding:44px 20px; }
-    .sobre-imagen img{ height:220px; }
-    .sobre-texto h2,
-    .objetivo h2{ font-size:28px; }
-
-    .objetivo{ padding:44px 20px; }
-    .objetivo-grid{ grid-template-columns:1fr; gap:20px; }
-    .objetivo-card{ padding:30px 20px; }
-
-    .porque{ padding:44px 16px; }
-    .porque-card{ padding:30px 22px; }
-    .porque-card h2{ font-size:26px; }
-    .porque-card p{ font-size:16px; line-height:1.8; }
-}
-
-/* ---------- Pantallas táctiles: sin efecto hover que se "pega" ---------- */
-@media (hover: none){
-    .objetivo-card:hover{ transform:none; }
+    /* Roles: el texto de cada resultado va debajo de la etiqueta */
+    #tabla-roles td{ flex-direction:column; align-items:flex-start; text-align:left; gap:4px; }
+    #tabla-roles td .detalle-error{ margin-top:2px; }
 }
