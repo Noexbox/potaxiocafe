@@ -1,6 +1,8 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
+// Pool del backend público (formulario de pedidos).
+// Debe usar el usuario con permisos mínimos: app_cliente.
 const pool = new Pool({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -9,13 +11,26 @@ const pool = new Pool({
     database: process.env.DB_NAME,
 });
 
-pool.connect((err, client, release) => {
-    if (err) {
-        console.error('Error al conectar a PostgreSQL:', err.message);
-    } else {
-        console.log('Conectado a la base de datos potaxio_cafe correctamente');
-        release();
-    }
+// Pool del panel de administrador (admin.html).
+// Usa el usuario admin_potaxio, que hereda rol_administrador.
+const poolAdmin = new Pool({
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.ADMIN_DB_USER,
+    password: process.env.ADMIN_DB_PASSWORD,
+    database: process.env.DB_NAME,
 });
 
-module.exports = pool;
+async function probar(nombre, p) {
+    try {
+        const r = await p.query('SELECT current_user AS usuario');
+        console.log(`[${nombre}] conectado a ${process.env.DB_NAME} como "${r.rows[0].usuario}"`);
+    } catch (err) {
+        console.error(`[${nombre}] error al conectar a PostgreSQL:`, err.message);
+    }
+}
+
+probar('pedidos', pool);
+probar('admin', poolAdmin);
+
+module.exports = { pool, poolAdmin };
