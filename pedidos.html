@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedidos - Potaxio Café</title>
+
+ <link rel="stylesheet" href="css/estilo.css">
+ <link rel="stylesheet" href="css/pedidos.css">
+</head>
+<body>
+
+    <header class="con-menu">
+        <!-- ===== MARCA: LOGO + NOMBRE =====
+             Para poner tu logo, guarda la imagen como imgs/logo.png
+             (o cambia el src de abajo). Mientras no exista, se muestra un recuadro de reserva. -->
+        <a class="marca" href="index.html">
+            <span class="logo-slot">
+                <img class="logo" src="imgs/logo.png" alt="Logo de Potaxio Café"
+                     onerror="this.parentElement.classList.add('sin-logo')">
+                <svg class="logo-reserva" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M4 3h13v9a6.5 6.5 0 0 1-13 0V3z"/>
+                    <path d="M17 6h2a3 3 0 0 1 0 6h-2"/>
+                    <path d="M3 21h15"/>
+                </svg>
+            </span>
+            <h2>Potaxio Café</h2>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="menu-principal">
+            <a href="index.html">Inicio</a>
+            <a href="pedidos.html">Pedir</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </header>
+
+    <!-- ===================== BANNER ===================== -->
+    <section class="pd-banner">
+        <div>
+            <p class="pd-eyebrow">Barra de pedidos</p>
+            <h1>Tu pedido, <em>recién hecho</em></h1>
+            <p class="pd-banner-texto">Elige de la carta y lo preparamos en cuanto lo recibimos.</p>
+        </div>
+    </section>
+
+    <!-- ===================== CARTA + COMANDA ===================== -->
+    <main class="pd-wrap">
+        <form id="form-pedido" class="pd-grid">
+
+            <!-- ---------- LA CARTA ---------- -->
+            <section class="pd-carta">
+                <div class="pd-carta-head">
+                    <h2>La carta</h2>
+                    <p>Usa los botones + y − para elegir cuántos quieres de cada uno</p>
+                </div>
+
+                <h3 class="pd-grupo">Calientes</h3>
+                <ul class="pd-lista">
+
+                    <li class="pd-item">
+                        <div class="pd-item-main">
+                            <div class="pd-item-line">
+                                <h4>Espresso</h4><span class="pd-puntos"></span><span class="pd-precio">$2.00</span>
+                            </div>
+                            <p>Corto, intenso y con crema.</p>
+                        </div>
+                        <div class="pd-stepper">
+                            <button type="button" data-delta="-1" aria-label="Quitar un Espresso">−</button>
+                            <input type="number" name="cantidad_espresso" min="0" max="20" value="0" aria-label="Cantidad de Espresso">
+                            <button type="button" data-delta="1" aria-label="Agregar un Espresso">+</button>
+                        </div>
+                    </li>
+
+                    <li class="pd-item">
+                        <div class="pd-item-main">
+                            <div class="pd-item-line">
+                                <h4>Latte</h4><span class="pd-puntos"></span><span class="pd-precio">$2.75</span>
+                            </div>
+                            <p>Leche vaporizada sobre espresso.</p>
+                        </div>
+                        <div class="pd-stepper">
+                            <button type="button" data-delta="-1" aria-label="Quitar un Latte">−</button>
+                            <input type="number" name="cantidad_latte" min="0" max="20" value="0" aria-label="Cantidad de Latte">
+                            <button type="button" data-delta="1" aria-label="Agregar un Latte">+</button>
+                        </div>
+                    </li>
+
+                    <li class="pd-item">
+                        <div class="pd-item-main">
+                            <div class="pd-item-line">
+                                <h4>Capuchino</h4><span class="pd-puntos"></span><span class="pd-precio">$2.00</span>
+                            </div>
+                            <p>Espresso, leche y una buena capa de espuma.</p>
+                        </div>
+                        <div class="pd-stepper">
+                            <button type="button" data-delta="-1" aria-label="Quitar un Capuchino">−</button>
+                            <input type="number" name="cantidad_capuchino" min="0" max="20" value="0" aria-label="Cantidad de Capuchino">
+                            <button type="button" data-delta="1" aria-label="Agregar un Capuchino">+</button>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <h3 class="pd-grupo">Fríos</h3>
+                <ul class="pd-lista">
+
+                    <li class="pd-item">
+                        <div class="pd-item-main">
+                            <div class="pd-item-line">
+                                <h4>Café frío</h4><span class="pd-puntos"></span><span class="pd-precio">$3.00</span>
+                            </div>
+                            <p>Café servido con hielo.</p>
+                        </div>
+                        <div class="pd-stepper">
+                            <button type="button" data-delta="-1" aria-label="Quitar un Café frío">−</button>
+                            <input type="number" name="cantidad_frio" min="0" max="20" value="0" aria-label="Cantidad de Café frío">
+                            <button type="button" data-delta="1" aria-label="Agregar un Café frío">+</button>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <h3 class="pd-grupo">Para acompañar</h3>
+                <ul class="pd-lista">
+
+                    <li class="pd-item">
+                        <div class="pd-item-main">
+                            <div class="pd-item-line">
+                                <h4>Pastel del día</h4><span class="pd-puntos"></span><span class="pd-precio">$2.50</span>
+                            </div>
+                            <p>Una porción del postre de hoy.</p>
+                        </div>
+                        <div class="pd-stepper">
+                            <button type="button" data-delta="-1" aria-label="Quitar un Pastel del día">−</button>
+                            <input type="number" name="cantidad_pastel" min="0" max="20" value="0" aria-label="Cantidad de Pastel del día">
+                            <button type="button" data-delta="1" aria-label="Agregar un Pastel del día">+</button>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <div class="pd-notas">
+                    <label for="notas">¿Algo especial para la barra? <span>(opcional)</span></label>
+                    <textarea id="notas" name="notas" rows="3" placeholder="Sin azúcar, para llevar"></textarea>
+                </div>
+            </section>
+
+            <!-- ---------- LA COMANDA ---------- -->
+            <aside class="pd-ticket-col">
+
+                <div class="pd-ticket" id="ticket-form">
+                    <div class="pd-ticket-head">
+                        <strong>POTAXIO CAFÉ</strong>
+                        <span>Comanda · <span id="ticket-fecha"></span></span>
+                    </div>
+
+                    <div class="pd-cliente">
+                        <div class="pd-par">
+                            <label>Nombre
+                                <input type="text" id="nombre" name="nombre" required autocomplete="given-name">
+                            </label>
+                            <label>Apellido
+                                <input type="text" id="apellido" name="apellido" required autocomplete="family-name">
+                            </label>
+                        </div>
+                        <label>Teléfono
+                            <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
+                        </label>
+                        <label>Correo electrónico
+                            <input type="email" id="correo" name="correo" required autocomplete="email">
+                        </label>
+                    </div>
+
+                    <div class="pd-lineas" id="ticket-lineas" aria-live="polite"></div>
+
+                    <div class="pd-total">
+                        <span>Total estimado</span>
+                        <span id="total-monto">$0.00</span>
+                    </div>
+                    <p class="pd-aviso">El total final lo confirma el sistema al enviar.</p>
+
+                    <p id="pd-mensaje" class="pd-mensaje" role="alert"></p>
+
+                    <button type="submit" class="pd-enviar">Confirmar pedido</button>
+                </div>
+
+                <div class="pd-ticket pd-exito" id="ticket-exito" hidden>
+                    <div class="pd-ticket-head">
+                        <strong>POTAXIO CAFÉ</strong>
+                        <span>Pedido recibido</span>
+                    </div>
+                    <p class="pd-exito-num">Pedido <strong id="exito-numero">#0</strong></p>
+                    <div class="pd-total">
+                        <span>Total</span>
+                        <span id="exito-total">$0.00</span>
+                    </div>
+                    <p class="pd-aviso">Ya está en la barra. Gracias por pedir en Potaxio.</p>
+                    <button type="button" class="pd-enviar" id="btn-otro">Hacer otro pedido</button>
+                </div>
+
+            </aside>
+
+        </form>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-marca">
+                <h2>Potaxio Café</h2>
+                <p>Abierto todos los días para tu pausa.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Navegación</h3>
+                <a href="index.html">Inicio</a>
+                <a href="#">Menú</a>
+                <a href="#">Servicios</a>
+                <a href="#">Contacto</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Horario</h3>
+                <p>Lunes a viernes: 7:00am - 8:00pm</p>
+                <p>Sábado y domingo: 8:00am - 9:00pm</p>
+                <p>Col. Escalón, San Salvador</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Síguenos</h3>
+                <div class="footer-redes">
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="17.5" cy="6.5" r="1"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-linea">
+            <svg viewBox="0 0 400 12" preserveAspectRatio="none">
+                <path d="M0 6 Q 10 0, 20 6 T 40 6 T 60 6 T 80 6 T 100 6 T 120 6 T 140 6 T 160 6 T 180 6 T 200 6 T 220 6 T 240 6 T 260 6 T 280 6 T 300 6 T 320 6 T 340 6 T 360 6 T 380 6 T 400 6" fill="none" stroke="#5a4535" stroke-width="1"/>
+            </svg>
+        </div>
+
+        <p class="footer-copy">© 2026 Potaxio Café — hecho con cariño y cafeína en El Salvador.</p>
+    </footer>
+
+    <script>
+        // Los precios son solo una referencia visual: el total real lo calcula
+        // la base de datos (triggers) cuando se envía el pedido.
+        // "id" debe coincidir con id_producto en la tabla productos.
+        const PRODUCTOS = [
+            { campo: 'cantidad_espresso',   id: 1, nombre: 'Espresso',       precio: 2.00 },
+            { campo: 'cantidad_latte',      id: 2, nombre: 'Latte',          precio: 2.75 },
+            { campo: 'cantidad_capuchino',  id: 5, nombre: 'Capuchino',      precio: 2.00 },
+            { campo: 'cantidad_frio',       id: 3, nombre: 'Café frío',      precio: 3.00 },
+            { campo: 'cantidad_pastel',     id: 4, nombre: 'Pastel del día', precio: 2.50 }
+        ];
+
+        const form = document.getElementById('form-pedido');
+        const lineas = document.getElementById('ticket-lineas');
+        const totalMonto = document.getElementById('total-monto');
+        const mensaje = document.getElementById('pd-mensaje');
+        const ticketForm = document.getElementById('ticket-form');
+        const ticketExito = document.getElementById('ticket-exito');
+
+        document.getElementById('ticket-fecha').textContent =
+            new Date().toLocaleDateString('es-SV', { day: 'numeric', month: 'short' });
+
+        function cantidadDe(p){
+            const n = parseInt(form.elements[p.campo].value, 10) || 0;
+            return Math.max(0, Math.min(20, n));
+        }
+
+        function calcularTotal(){
+            let total = 0;
+            let html = '';
+
+            PRODUCTOS.forEach(p => {
+                const c = cantidadDe(p);
+                form.elements[p.campo].closest('.pd-item').classList.toggle('activo', c > 0);
+                if (c > 0){
+                    const subtotal = c * p.precio;
+                    total += subtotal;
+                    html += `<div class="pd-linea"><span>${c} × ${p.nombre}</span><span class="pd-puntos"></span><span>$${subtotal.toFixed(2)}</span></div>`;
+                }
+            });
+
+            lineas.innerHTML = html || '<p class="pd-vacio">Todavía no hay nada en tu comanda.</p>';
+            totalMonto.textContent = '$' + total.toFixed(2);
+        }
+
+        form.querySelectorAll('.pd-stepper').forEach(stepper => {
+            const input = stepper.querySelector('input');
+
+            stepper.addEventListener('click', e => {
+                const boton = e.target.closest('button[data-delta]');
+                if (!boton) return;
+                const nuevo = (parseInt(input.value, 10) || 0) + Number(boton.dataset.delta);
+                input.value = Math.max(0, Math.min(20, nuevo));
+                calcularTotal();
+            });
+
+            input.addEventListener('input', calcularTotal);
+        });
+
+        form.addEventListener('submit', async function(e){
+            e.preventDefault();
+            mensaje.textContent = '';
+
+            const productos = PRODUCTOS.map(p => ({ id_producto: p.id, cantidad: cantidadDe(p) }));
+
+            if (!productos.some(p => p.cantidad > 0)){
+                mensaje.textContent = 'Agrega al menos un producto a tu comanda.';
+                return;
+            }
+
+            const datosPedido = {
+                nombre: form.elements.nombre.value.trim(),
+                apellido: form.elements.apellido.value.trim(),
+                telefono: form.elements.telefono.value.trim(),
+                correo: form.elements.correo.value.trim(),
+                notas: form.elements.notas.value.trim(),
+                productos: productos
+            };
+
+            const boton = form.querySelector('#ticket-form .pd-enviar');
+            boton.disabled = true;
+            boton.textContent = 'Enviando...';
+
+            try {
+                const respuesta = await fetch('/api/pedidos', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(datosPedido)
+                });
+                const resultado = await respuesta.json();
+
+                if (resultado.ok){
+                    document.getElementById('exito-numero').textContent = '#' + resultado.id_pedido;
+                    document.getElementById('exito-total').textContent = '$' + Number(resultado.total).toFixed(2);
+                    ticketForm.hidden = true;
+                    ticketExito.hidden = false;
+                    ticketExito.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    mensaje.textContent = 'No pudimos procesar el pedido: ' + resultado.error;
+                }
+            } catch (error) {
+                mensaje.textContent = 'No hay conexión con el servidor. Intenta de nuevo.';
+                console.error(error);
+            } finally {
+                boton.disabled = false;
+                boton.textContent = 'Confirmar pedido';
+            }
+        });
+
+        document.getElementById('btn-otro').addEventListener('click', () => {
+            form.reset();
+            calcularTotal();
+            mensaje.textContent = '';
+            ticketExito.hidden = true;
+            ticketForm.hidden = false;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        calcularTotal();
+    </script>
+    <script>
+        // Menú hamburguesa (solo se ve en pantallas pequeñas)
+        (function () {
+            var btn = document.querySelector('.menu-toggle');
+            var header = document.querySelector('header');
+            btn.addEventListener('click', function () {
+                var abierto = header.classList.toggle('menu-abierto');
+                btn.setAttribute('aria-expanded', abierto);
+            });
+        })();
+    </script>
+
+</body>
+</html>

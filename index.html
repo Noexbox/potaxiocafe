@@ -3,25 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cafetería Roxi Coffee</title>
+<title>Potaxio Café</title>
 
  <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
 
-    <header>
-        <h2>Potaxio Café</h2>
-            <nav>
-                <a href="#">Inicio</a>
-                <a href="Pedidos.html">Pedir</a>
-            </nav>
+    <header class="con-menu">
+        <!-- ===== MARCA: LOGO + NOMBRE =====
+             Para poner tu logo, guarda la imagen como imgs/logo.png
+             (o cambia el src de abajo). Mientras no exista, se muestra un recuadro de reserva. -->
+        <a class="marca" href="index.html">
+            <span class="logo-slot">
+                <img class="logo" src="imgs/logo.png" alt="Logo de Potaxio Café"
+                     onerror="this.parentElement.classList.add('sin-logo')">
+                <svg class="logo-reserva" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M4 3h13v9a6.5 6.5 0 0 1-13 0V3z"/>
+                    <path d="M17 6h2a3 3 0 0 1 0 6h-2"/>
+                    <path d="M3 21h15"/>
+                </svg>
+            </span>
+            <h2>Potaxio Café</h2>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="menu-principal">
+            <a href="index.html">Inicio</a>
+            <a href="pedidos.html">Pedir</a>
+            <a href="admin.html">Admin</a>
+        </nav>
     </header>
 
     <section class="hero">
         <div>
             <h1>POTAXIO CAFÉ</h1>
             <p>Donde cada taza cuenta una historia</p>
-            <a href="Pedidos.html"><button>Ordenar Ahora</button></a>
+            <a href="pedidos.html"><button>Ordenar Ahora</button></a>
         </div>
     </section>
 
@@ -163,5 +183,16 @@
         <p class="footer-copy">© 2026 Potaxio Café — hecho con cariño y cafeína en El Salvador.</p>
     </footer>
 
+    <script>
+        // Menú hamburguesa (solo se ve en pantallas pequeñas)
+        (function () {
+            var btn = document.querySelector('.menu-toggle');
+            var header = document.querySelector('header');
+            btn.addEventListener('click', function () {
+                var abierto = header.classList.toggle('menu-abierto');
+                btn.setAttribute('aria-expanded', abierto);
+            });
+        })();
+    </script>
 </body>
 </html>
